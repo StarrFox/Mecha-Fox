@@ -8,12 +8,6 @@ if not os.path.exists('storage'):
     print("Made storage dir")
 
 jsk_settings = {
-    "task": "<a:sonic:577005444191485952>",
-    "done": "<a:dancin:582409853918511165>",
-    "syntax": "<a:default:577017740016222229>",
-    "timeout": "error:539157627385413633",
-    "error": "<a:default:577017740016222229>",
-    "tracebacks": "\N{BLACK DOWN-POINTING DOUBLE TRIANGLE}",
     "scope_prefix": "",
     "retain": True,
     "channel_tracebacks": True
