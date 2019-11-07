@@ -1,0 +1,2 @@
+discord.py
+git+https://github.com/StarrFox/bot_stuff.git@master#egg=bot_stuff
