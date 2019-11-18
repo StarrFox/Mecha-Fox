@@ -155,7 +155,6 @@ class experience(commands.Cog):
         await ctx.send(f"Removed {ammount} from {user.display_name}'s total experience.")
 
     @commands.command(name="lb")
-    @checks.is_above_mod()
     async def xp_lb(self, ctx):
         """
         Top 10 leaderboard
