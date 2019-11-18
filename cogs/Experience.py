@@ -92,7 +92,7 @@ class experience(commands.Cog):
             self.xp[user_id] += 1
         except KeyError:
             self.xp[user_id] = 1
-        time = random.randrange(0, 6)*60 # sleep takes seconds
+        time = random.randrange(1, 5)*60 # sleep takes seconds
         self.given_xp_tasks[user_id] = self.bot.loop.create_task(
             self.given_xp_task(user_id, time)
         )
