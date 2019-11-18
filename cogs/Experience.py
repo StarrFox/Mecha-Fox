@@ -1,10 +1,13 @@
-import discord
 import json
-import asyncio
 import random
+import asyncio
+import discord
+import logging
 
 from discord.ext import commands
 from extras import checks, utils
+
+logger = logging.getLogger(__name__)
 
 class experience(commands.Cog):
 
@@ -31,7 +34,7 @@ class experience(commands.Cog):
                 # convert keys to ints
                 self.xp = {k: i for k, i in map(lambda ki: (int(ki[0]), ki[1]), temp.items())}
                 self.check_integrity()
-        return True
+        logger.info(f"Loaded xp map for {len(self.xp.keys())} users.")
 
     def save_xp(self):
         """
@@ -39,6 +42,7 @@ class experience(commands.Cog):
         """
         with open("storage/experience.json", 'w') as fp:
             json.dump(self.xp, fp, indent=4)
+        logger.info(f"Saved xp map for {len(self.xp.keys())} users.")
 
     def check_integrity(self):
         """
@@ -51,6 +55,8 @@ class experience(commands.Cog):
         for uid in dict_ids:
             if not uid in guild_ids:
                 self.xp.pop(uid)
+                logger.info(f"Removed {uid} from xp map for leaving guild.")
+        logger.info("Xp map integrity checked.")
         return True
 
     def cog_unload(self):
@@ -90,6 +96,7 @@ class experience(commands.Cog):
         self.given_xp_tasks[user_id] = self.bot.loop.create_task(
             self.given_xp_task(user_id, time)
         )
+        logger.info(f"Gave {user_id} 1 xp and started an xp cooldown of {time} seconds.")
 
     async def given_xp_task(self, user_id: int, time: int):
         """
@@ -100,6 +107,7 @@ class experience(commands.Cog):
         except:
             pass
         self.given_xp_tasks.pop(user_id)
+        logger.info(f"Xp cooldown of {time} seconds over for {user_id}.")
 
     # user facing
 
