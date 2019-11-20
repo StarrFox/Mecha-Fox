@@ -143,7 +143,7 @@ class events(commands.Cog):
 
     @commands.Cog.listener("on_member_join")
     async def member_role_adder(self, member):
-        await member.add_role(
+        await member.add_roles(
             self.bot.guild().get_role(MEMBER_ID)
         )
         logger.info(f"Gave {member} the member role.")
