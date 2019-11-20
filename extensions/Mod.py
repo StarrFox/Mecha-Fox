@@ -6,11 +6,6 @@ from discord.ext import commands
 
 logger = logging.getLogger(__name__)
 
-def filter_loaded():
-    def predicate(ctx):
-        return ctx.bot.events_loaded
-    return commands.check(predicate)
-
 class mod(commands.Cog):
     """
     Moderation commands

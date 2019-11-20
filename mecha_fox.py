@@ -21,7 +21,7 @@ jsk_settings = {
     "channel_tracebacks": True
 }
 
-mecha = bot_stuff.Bot(config.prefix, config.owners, "cogs")
+mecha = bot_stuff.Bot(config.prefix, config.owners, "extensions")
 
 mecha.load_extension("bot_stuff.jsk", **jsk_settings)
 
