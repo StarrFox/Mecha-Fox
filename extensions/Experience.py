@@ -168,7 +168,7 @@ class experience(commands.Cog):
         Top 10 leaderboard
         """
         lb = "\n".join(
-            [f"{i+1}. {ctx.guild.get_member(ki[0]).display_name}: {ki[1]}" for i, ki in enumerate([(k, i) for k, i in reversed(sorted(list(self.xp.items()), key=lambda x: x[1]))[:10]])
+            [f"{i+1}. {ctx.guild.get_member(ki[0]).display_name}: {ki[1]}" for i, ki in enumerate([(k, i) for k, i in reversed(sorted(list(self.xp.items())[:10], key=lambda x: x[1])[:10])])]
             )
         await ctx.send(utils.block(lb))
 
