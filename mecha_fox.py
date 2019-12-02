@@ -55,6 +55,6 @@ mecha.guild = guild
 
 mecha.events_loaded = False
 
-mecha.add_ready_func(mecha.load_extension, "bot_stuff.logger", channel=578771629312704513)
+mecha.load_extension("bot_stuff.logging_cog", webhook_url = config.webhook_url)
 
 mecha.run(config.token)
