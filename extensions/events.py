@@ -156,7 +156,7 @@ class events(commands.Cog):
             return
         roles = [self.bot.guild().get_role(i) for i in [NICK_PERM, REACT_PERM, IMAGE_PERM]]
         for member in processed:
-            await member.add_roles(roles)
+            await member.add_roles(*roles)
             logger.info(f"Twoweeks roles added to {member}.")
             await self.logging_channel.send(f"Twoweeks roles added to {member}.")
 
